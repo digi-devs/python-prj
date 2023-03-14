@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn mongodb.wsgi --log-files=-
+web:gunicorn mongodb.wsgi --log-files=-
