@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'companyAPI.apps.CompanyapiConfig',
-    'EmpAPI.apps.EmpapiConfig'
+    'EmpAPI.apps.EmpapiConfig',
+    'django_celery_results',
 ]
 
 CORS_ORIGIN_ALLOW_ALL=True
@@ -143,3 +144,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CELERY
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+accept_content = ['application/json']
+result_serializer = 'json'
+task_serializer = 'json'
+timezone = 'Asia/Kolkata'
+result_backend = 'django-db'

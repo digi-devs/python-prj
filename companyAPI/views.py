@@ -9,8 +9,14 @@ from rest_framework.permissions import IsAuthenticated
 
 from companyAPI.models import CompanyModel
 from companyAPI.serializers import CompanySerializer
+from companyAPI.tasks import test_func
 
 # Create your views here
+
+def testCelery(request):
+    test_func.delay()
+    print('Printed result')
+    return HttpResponse('Done Process2')
 
 
 

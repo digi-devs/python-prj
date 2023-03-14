@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from companyAPI import views
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -7,6 +8,7 @@ from rest_framework_simplejwt.views import (
 
 
 urlpatterns = [
+    path('v1/testCelery/',views.testCelery, name='testCelery'),
     path('v1/getCompany/',GetCompany.as_view(), name='getCompany'),
     path('v1/getCompanyById/<int:company_id>',GetCompanyById.as_view(), name='getCompanyById'),
     path('v1/postCompany/',PostCompany.as_view(), name='postCompany'),
